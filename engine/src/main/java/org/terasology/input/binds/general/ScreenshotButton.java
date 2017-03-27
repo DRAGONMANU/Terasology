@@ -13,25 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terasology.rendering.shader;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL13;
-import org.terasology.rendering.assets.material.Material;
+package org.terasology.input.binds.general;
 
-import static org.lwjgl.opengl.GL11.glBindTexture;
+import org.terasology.input.BindButtonEvent;
+import org.terasology.input.DefaultBinding;
+import org.terasology.input.InputType;
+import org.terasology.input.Keyboard;
+import org.terasology.input.RegisterBindButton;
 
-/**
- * Shader parameters for the Block shader program.
- *
- */
-public class ShaderParametersDefault extends ShaderParametersBase {
-    @Override
-    public void applyParameters(Material program) {
-        super.applyParameters(program);
-
-        // TODO: verify this is still relevant
-        GL13.glActiveTexture(GL13.GL_TEXTURE0);
-        glBindTexture(GL11.GL_TEXTURE_2D, 0);
-    }
+@RegisterBindButton(id = "screenshot", description = "${engine:menu#binding-screenshot}", category = "general")
+@DefaultBinding(type = InputType.KEY, id = Keyboard.KeyId.F12)
+public class ScreenshotButton extends BindButtonEvent {
 }
